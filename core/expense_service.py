@@ -1,6 +1,7 @@
 from datetime import date
 from collections import defaultdict
 from core.expense import Expense
+from typing import Optional
 import abc
 
 
@@ -28,7 +29,7 @@ class ExpenseService:
         title: str,
         amount: float,
         description: str = "",
-        expense_date: date = None,
+        expense_date: Optional[date] = None,
     ) -> Expense:
         if expense_date is None:
             expense_date = date.today()
@@ -76,7 +77,7 @@ class ExpenseService:
         return sum(expense.amount for expense in self._repository.list_all())
 
     def total_by_month(self) -> dict[str, float]:
-        totals = defaultdict(float)
+        totals: dict[str, float] = defaultdict(float)
 
         for expense in self._repository.list_all():
             key = expense.expense_date.strftime("%Y-%m")
