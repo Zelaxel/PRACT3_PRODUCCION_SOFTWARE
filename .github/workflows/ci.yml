@@ -27,7 +27,7 @@ jobs:
         run: uv pip install ruff mypy
 
       - name: Ruff format
-        run: uv ruff format . --check
+        run: uv run ruff format . --check
 
       - name: Ruff linter
         run: uv run ruff check .
