@@ -38,7 +38,9 @@ def test_negative_amount_raises_error():
     - Revisar si esta restricción ya está implementada en la clase Expense.
     """
     with pytest.raises(InvalidAmountError):
-        Expense(id=1, title="expense1", amount=-1, description="", expense_date=date.today())
+        Expense(
+            id=1, title="expense1", amount=-1, description="", expense_date=date.today()
+        )
 
 
 def test_future_date_raises_error():
@@ -54,4 +56,10 @@ def test_future_date_raises_error():
     - Verificar si ya se encuentra implementada esta validación en la clase Expense.
     """
     with pytest.raises(InvalidAmountError):
-        Expense(id=1, title="expense1", amount=-1, description="", expense_date=(date.today() + timedelta(days=1)))
+        Expense(
+            id=1,
+            title="expense1",
+            amount=-1,
+            description="",
+            expense_date=(date.today() + timedelta(days=1)),
+        )
