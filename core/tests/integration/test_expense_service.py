@@ -124,6 +124,7 @@ def test_remove_expense_reduces_total():
 
     assert len(expenses) == 1
     assert expenses[0].title == "Revista"
+    assert expenses[0].amount == 5
 
 
 def test_update_expense_partial_fields():
